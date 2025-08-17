@@ -1,0 +1,35 @@
+# Git Configuration Template
+# Copy these settings or run the setup script to configure Git
+
+[user]
+    name = Leo Liu
+    email = leo@liuwork.ca
+
+[pull]
+    rebase = false
+
+[core]
+    editor = code --wait
+    autocrlf = input
+
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    ci = commit
+    unstage = reset HEAD --
+    lg = log --oneline --graph --decorate --all
+    amend = commit --amend --no-edit
+    fixup = commit --fixup
+
+[diff]
+    tool = vscode
+
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+
+[merge]
+    tool = vscode
+
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
