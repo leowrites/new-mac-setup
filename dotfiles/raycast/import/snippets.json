@@ -1,0 +1,9 @@
+[
+  {"name": "Today", "text": "{date format=\"yyyy-MM-dd\"}", "keyword": ";date"},
+  {"name": "Wallet PR ref", "text": "spruceid/ca-dmv-mdl-wallet#{cursor}", "keyword": ";wpr"},
+  {"name": "Micro-svc PR ref", "text": "spruceid/ca-dmv-mdl-micro-svc#{cursor}", "keyword": ";mpr"},
+  {"name": "Linear ticket", "text": "CAMV-{cursor}", "keyword": ";camv"},
+  {"name": "PR description", "text": "Made following changes:\n1. {cursor}\n\nTesting:\n1. \n\nCloses CAMV-", "keyword": ";prd"},
+  {"name": "Doc skeleton", "text": "## Background\n{cursor}\n\n## Goal\n\n## Proposal\n1. \n\n## Open Questions\n1. \n\n## Next Steps\n1. ", "keyword": ";doc"},
+  {"name": "Grab time ask", "text": "Could I grab some time with someone tomorrow to go over it? Things I'd like to discuss:\n1. {cursor}", "keyword": ";sync"}
+]

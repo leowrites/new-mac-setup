@@ -1,0 +1,10 @@
+[
+  {"name": "Wallet PR", "link": "https://github.com/spruceid/ca-dmv-mdl-wallet/pull/{argument name=\"number\"}"},
+  {"name": "Micro-svc PR", "link": "https://github.com/spruceid/ca-dmv-mdl-micro-svc/pull/{argument name=\"number\"}"},
+  {"name": "Wallet Core PR", "link": "https://github.com/spruceid/ca-dmv-mdl-wallet-core/pull/{argument name=\"number\"}"},
+  {"name": "Search spruceid Code", "link": "https://github.com/search?q=org%3Aspruceid+{argument name=\"query\"}&type=code"},
+  {"name": "My GitHub PRs", "link": "https://github.com/pulls"},
+  {"name": "Review Requests", "link": "https://github.com/pulls/review-requested"},
+  {"name": "My Linear Issues", "link": "https://linear.app/spruceid/my-issues/assigned"},
+  {"name": "Linear Inbox", "link": "https://linear.app/spruceid/inbox"}
+]

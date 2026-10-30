@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Rewrite Like Leo",
+    "icon": "pencil",
+    "creativity": "low",
+    "prompt": "Rewrite the text below so it sounds like a software engineer talking plainly to a teammate.\n\nRules:\n- Short sentences, short paragraphs. Lead with what happened or what's needed.\n- Use \"we\" for the team and \"I\" for my own work and opinions. State opinions with the reason right after.\n- Numbered lists for changes, asks and discussion points.\n- One hedge at most per claim. No corporate or marketing tone.\n- No em dashes. No words like delve, robust, seamless, crucial, comprehensive, leverage, enhance, additionally.\n- Keep every fact, ticket ID and link. Don't add new claims.\n\nOutput only the rewritten text.\n\nText:\n{selection}"
+  },
+  {
+    "title": "Notes to PR Description",
+    "icon": "code",
+    "creativity": "low",
+    "prompt": "Turn these rough notes into a GitHub PR description.\n\nFormat:\nMade following changes:\n1. ...\n\nTesting:\n1. ...\n\nKeep it plain and short. Keep ticket IDs (e.g. CAMV-674) and PR refs as written. No em dashes, no marketing tone. Output only the description.\n\nNotes:\n{selection}"
+  },
+  {
+    "title": "Notes to Linear Ticket",
+    "icon": "list",
+    "creativity": "low",
+    "prompt": "Turn these notes into a Linear ticket body with these sections: Background, Goal, Proposal (numbered steps), Open Questions, Next Steps. Skip a section if the notes have nothing for it. Plain, conversational, no em dashes. Output only the ticket body in markdown.\n\nNotes:\n{selection}"
+  },
+  {
+    "title": "Explain Code",
+    "icon": "magnifying-glass",
+    "creativity": "low",
+    "prompt": "Explain what this code does. Start with a one-sentence answer, then walk through it in order. Point out anything that looks like a bug. Be concise.\n\n{selection}"
+  },
+  {
+    "title": "Draft Slack Reply",
+    "icon": "speech-bubble",
+    "creativity": "medium",
+    "prompt": "Draft a short Slack reply to the message below. Warm and brief, plain language, lowercase is fine for short replies. Answer what was asked. If something is unclear, ask one direct question. No em dashes, no emoji unless it fits. Output only the reply.\n\nMessage:\n{selection}"
+  }
+]

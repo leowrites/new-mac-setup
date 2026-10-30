@@ -9,7 +9,7 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = ['exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=2.0']
+after-startup-command = []
 
 
 # Start AeroSpace at login
@@ -25,7 +25,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 accordion-padding = 30
 
 # Possible values: tiles|accordion
-default-root-container-layout = 'tiles'
+default-root-container-layout = 'accordion'
 
 # Possible values: horizontal|vertical|auto
 # 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
@@ -57,6 +57,9 @@ automatically-unhide-macos-hidden-apps = false
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
+[workspace-to-monitor-force-assignment]
+    n = 'built-in'
+
 [gaps]
     inner.horizontal = 0
     inner.vertical =   0
@@ -107,6 +110,9 @@ automatically-unhide-macos-hidden-apps = false
     alt-j = 'focus --boundaries-action wrap-around-the-workspace down'
     alt-k = 'focus --boundaries-action wrap-around-the-workspace up'
     alt-l = 'focus --boundaries-action wrap-around-the-workspace right'
+    alt-period = 'focus dfs-next --boundaries-action wrap-around-the-workspace'
+    alt-shift-period = 'focus dfs-prev --boundaries-action wrap-around-the-workspace'
+    alt-e = 'exec-and-forget open raycast://extensions/raycast/navigation/switch-windows'
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
     alt-shift-h = 'move left'
     alt-shift-j = 'move down'
@@ -124,23 +130,28 @@ automatically-unhide-macos-hidden-apps = false
     alt-4 = 'workspace 4'
     alt-s = 'workspace s'
     alt-w = 'workspace w'
-    alt-q = 'workspace q'
+    alt-t = 'workspace t'
     alt-i = 'workspace i'
     alt-n = 'workspace n'
+    alt-d = 'workspace d'
     alt-z = 'workspace z'
-    alt-f = 'layout floating tiling'
+    alt-f = 'layout tiling'
     alt-r = 'balance-sizes'
+    alt-shift-r = 'exec-and-forget /usr/bin/python3 ~/.config/aerospace/reset-layout.py'
+    alt-shift-f = 'exec-and-forget ~/.config/aerospace/tile-workspace.sh'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-    alt-shift-1 = 'move-node-to-workspace 1'
-    alt-shift-2 = 'move-node-to-workspace 2'
-    alt-shift-3 = 'move-node-to-workspace 3'
-    alt-shift-4 = 'move-node-to-workspace 4'
-    alt-shift-s = 'move-node-to-workspace s'
-    alt-shift-w = 'move-node-to-workspace w'
-    alt-shift-i = 'move-node-to-workspace i'
-    alt-shift-n = 'move-node-to-workspace n'
-    alt-shift-z = 'move-node-to-workspace z'
+    alt-shift-1 = 'move-node-to-workspace --focus-follows-window 1'
+    alt-shift-2 = 'move-node-to-workspace --focus-follows-window 2'
+    alt-shift-3 = 'move-node-to-workspace --focus-follows-window 3'
+    alt-shift-4 = 'move-node-to-workspace --focus-follows-window 4'
+    alt-shift-s = 'move-node-to-workspace --focus-follows-window s'
+    alt-shift-w = 'move-node-to-workspace --focus-follows-window w'
+    alt-shift-i = 'move-node-to-workspace --focus-follows-window i'
+    alt-shift-n = 'move-node-to-workspace --focus-follows-window n'
+    alt-shift-d = 'move-node-to-workspace --focus-follows-window d'
+    alt-shift-z = 'move-node-to-workspace --focus-follows-window z'
+    alt-shift-t = 'move-node-to-workspace --focus-follows-window t'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
@@ -201,3 +212,37 @@ automatically-unhide-macos-hidden-apps = false
 [[on-window-detected]]
     if.app-id='us.zoom.xos'
     run = ['layout tiling', 'move-node-to-workspace z']
+
+[[on-window-detected]]
+    if.app-id='com.microsoft.teams2'
+    run = ['layout tiling', 'move-node-to-workspace z']
+
+[[on-window-detected]]
+    if.app-id='com.google.Chrome'
+    run = ['layout tiling', 'move-node-to-workspace w']
+
+[[on-window-detected]]
+    if.app-id='com.mitchellh.ghostty'
+    run = ['layout tiling', 'move-node-to-workspace t']
+
+[[on-window-detected]]
+    if.app-id='com.anthropic.claudefordesktop'
+    run = ['layout tiling', 'move-node-to-workspace i']
+
+[[on-window-detected]]
+    if.app-id='notion.id'
+    run = ['layout tiling', 'move-node-to-workspace d']
+
+[[on-window-detected]]
+    if.app-id='com.granola.app'
+    check-further-callbacks = true
+    run = 'move-node-to-workspace n'
+
+[[on-window-detected]]
+    if.app-id='com.granola.app'
+    if.window-title-regex-substring='^Granola$'
+    run = 'layout tiling'
+
+[[on-window-detected]]
+    if.app-id='com.spotify.client'
+    run = ['layout tiling', 'move-node-to-workspace s']
